@@ -1,0 +1,16 @@
+<div class="ui container">
+  <h2 class="ui center aligned icon header">
+    <img class="ui image" src="./assets/img/electron_icon.png">
+    <div class="content">
+      {{title}}
+      <div class="sub header">{{subTitle}}</div>
+    </div>
+  </h2>
+  <video #camera class="ui fluid" autoplay> </video>
+  <!-- 이 부분을 추가해 줍니다. -->
+  <button id="btn_photo" class="ui fluid button" (click)="takePhoto()">
+    <i class="icon photo"></i>
+    Take a Photo!
+  </button>
+  <canvas #myCanvas class="ui fluid" width="640" height="480"></canvas>
+</div>

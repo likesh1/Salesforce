@@ -1,0 +1,8 @@
+#camera{
+  transform: scaleX(-1);
+}
+
+.fluid {
+  margin-bottom: 20px;
+  width: 100%;
+}
