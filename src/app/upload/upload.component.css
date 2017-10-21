@@ -1,0 +1,31 @@
+.upload {
+  position: absolute;
+  top: 25%;
+  rigth: 20%;
+}
+
+.img-ul-drag-box-msg[_ngcontent-c6] {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 10%;
+  padding-top: 5%;
+}
+
+mat-button-toggle {
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 80%;
+  left: 40%;
+}
+
+/deep/ .customClass .img-ul-image {
+  background: center center no-repeat;
+  background-size: contain;
+  display: inline-block;
+  float: left;
+  height: 250px !important;
+  margin: 6px;
+  position: relative;
+  width: 90% !important;
+}

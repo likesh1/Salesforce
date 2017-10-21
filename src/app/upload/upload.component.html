@@ -1,0 +1,10 @@
+<image-upload url="https://httpbin.org/status/200" dropBoxMessage="Choose files or Drag them"
+              (uploadFinished)="onUploadFinished($event)"
+              [style]="customStyle"
+              [max]='1'
+              class="customClass"
+              [extensions]="['jpg','png','gif']"
+              (removed)="onRemoved($event)"
+              [fileTooLargeMessage]="'Image too large!'"></image-upload>
+
+<mat-button-toggle *ngIf="showUpload">Upload ?</mat-button-toggle>

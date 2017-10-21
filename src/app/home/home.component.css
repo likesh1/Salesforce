@@ -8,7 +8,13 @@
 }
 
 .ui-fluid {
-  width: 0 !important;
-  height: 0 !important;
   show: hidden !important;
+}
+.videoSize{
+  height: 450px;
+  width: 100%;
+  padding: 10%;
+}
+.ui.fluid.button {
+  background-color: lightskyblue;
 }

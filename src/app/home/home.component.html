@@ -1,0 +1,16 @@
+<div class="ui container">
+  <h2 class="ui center aligned icon header">
+    <img class="ui image" src="./assets/img/electron_icon.png">
+    <div class="content">
+      {{title}}
+      <div class="sub header">{{subTitle}}</div>
+    </div>
+  </h2>
+  <video #camera class="ui fluid videoSize" autoplay></video>
+  <button id="btn_photo" class="ui fluid button" (click)="takePhoto()">
+    <i class="icon photo"></i>
+    Take a Photo!
+  </button>
+  <canvas *ngIf="showPicture" #myCanvas class="ui-fluid" width="0" height="0"></canvas>
+</div>
+

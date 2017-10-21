@@ -1,0 +1,13 @@
+<button class="menu" mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="showCamera()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <mat-icon><i class="material-icons">camera_alt</i></mat-icon>
+    <span>Capture</span>
+  </button>
+  <button mat-menu-item (click)="showUpload()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <mat-icon><i class="material-icons">file_upload</i></mat-icon>
+    <span>Upload</span>
+  </button>
+</mat-menu>
