@@ -43,7 +43,8 @@ import {StartupComponent} from './startup/startup.component';
 import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {UploadComponent} from './upload/upload.component';
-import {ImageUploadModule} from "angular2-image-upload";
+import {ImageUploadModule} from 'angular2-image-upload';
+import {EinsteinservicecallService} from "./Service/einsteinservicecall.service";
 
 @NgModule({
   declarations: [
@@ -93,7 +94,7 @@ import {ImageUploadModule} from "angular2-image-upload";
     MatStepperModule,
     ImageUploadModule.forRoot()
   ],
-  providers: [],
+  providers: [EinsteinservicecallService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

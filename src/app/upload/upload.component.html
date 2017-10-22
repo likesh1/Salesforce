@@ -7,4 +7,4 @@
               (removed)="onRemoved($event)"
               [fileTooLargeMessage]="'Image too large!'"></image-upload>
 
-<mat-button-toggle *ngIf="showUpload">Upload ?</mat-button-toggle>
+<mat-button-toggle *ngIf="showUpload" (click)="sendRequest()">Upload ?</mat-button-toggle>

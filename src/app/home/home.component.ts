@@ -38,8 +38,6 @@ export class HomeComponent implements OnInit {
     const dataURL = _canvas.toDataURL('image/png');
     dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
     this.showPicture = false;
-    console.log(dataURL);
-
   }
 
 }

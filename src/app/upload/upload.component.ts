@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
 
 @Component({
   selector: 'app-upload',
@@ -7,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UploadComponent implements OnInit {
   showUpload: boolean;
+  x: any;
   customStyle = {
     selectButton: {
       'background-color': '#4942B7',
@@ -41,7 +43,7 @@ export class UploadComponent implements OnInit {
     }
   };
 
-  constructor() {
+  constructor(private einstienService: EinsteinservicecallService) {
   }
 
   ngOnInit() {
@@ -49,13 +51,18 @@ export class UploadComponent implements OnInit {
   }
 
   onUploadFinished(event) {
-    const file = event.file;
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      console.log(reader.result);
-    };
     this.showUpload = true;
+    const file = event.file;
+    let base64: string;
+    const reader = new FileReader();
+    reader.readAsBinaryString(file);
+    reader.onload = function () {
+      base64 = reader.result;
+      const base = btoa(base64);
+    };
+    this.x = base64;
+    console.log(this.x);
+    console.log(base64);
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
@@ -63,5 +70,16 @@ export class UploadComponent implements OnInit {
 
   onRemoved() {
     this.showUpload = false;
+  }
+
+  sendRequest() {
+    console.log(this.x);
+    this.einstienService.getDataJson(this.x)
+      .subscribe(
+        reponse => console.log(reponse),
+        error => {
+          console.log(error);
+        }
+      );
   }
 }
