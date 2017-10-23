@@ -6,11 +6,16 @@
       <div class="sub header">{{subTitle}}</div>
     </div>
   </h2>
-  <video #camera class="ui fluid videoSize" autoplay></video>
-  <canvas #myCanvas class="ui-fluid" [style.display]="getStyle"></canvas>
+  <video #camera class="ui fluid videoSize" autoplay [style.display]="getCameraStyle"></video>
+  <canvas #myCanvas class="ui-fluid" [style.display]="getStyle" [style.width]='getWidthStyle'
+          [style.height]='getHeightStyle'></canvas>
   <button id="btn_photo" class="ui fluid button" (click)="takePhoto()" *ngIf='showPicture'>
     <i class="icon photo"></i>
     Take a Photo!
   </button>
+  <div class="button-proceed">
+    <button class="ui fluid button" *ngIf='!showPicture'>Proceed</button>
+    <button class="ui fluid button" *ngIf='!showPicture'>ReTake</button>
+  </div>
 </div>
 

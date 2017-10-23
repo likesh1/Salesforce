@@ -13,10 +13,14 @@ export class HomeComponent implements OnInit {
   private subTitle = 'Click to Buy';
   showPicture: boolean;
   private ctx;
-
+  getCameraStyle = '';
   getStyle = 'none';
+  getWidthStyle = '';
+  getHeightStyle = '';
+  showCamera: boolean;
 
   ngOnInit() {
+    this.showCamera = true;
     this.showPicture = true;
     const _video = this.video.nativeElement;
 
@@ -32,7 +36,10 @@ export class HomeComponent implements OnInit {
 
 
   takePhoto = () => {
+    this.getCameraStyle = 'none';
     this.getStyle = 'block';
+    this.getWidthStyle = '10%';
+    this.getHeightStyle = '450px'
     const _canvas = this.canvas.nativeElement;
     this.ctx = _canvas.getContext('2d');
     this.ctx.translate(_canvas.width, 0);
