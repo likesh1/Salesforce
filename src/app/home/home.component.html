@@ -14,8 +14,8 @@
     Take a Photo!
   </button>
   <div class="button-proceed">
-    <button class="ui fluid button" *ngIf='!showPicture'>Proceed</button>
-    <button class="ui fluid button" *ngIf='!showPicture'>ReTake</button>
+    <button class="ui fluid button" *ngIf='!showPicture' (click)="nextPage()">Proceed</button>
+    <button class="ui fluid button" *ngIf='!showPicture'(click)="backToCamera()">ReTake</button>
   </div>
 </div>
 

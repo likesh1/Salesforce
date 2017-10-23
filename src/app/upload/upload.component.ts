@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-upload',
@@ -8,7 +9,8 @@ import {EinsteinservicecallService} from '../Service/einsteinservicecall.service
 })
 export class UploadComponent implements OnInit {
   showUpload: boolean;
-  file2: any
+  file2: any;
+  x: any;
   private base64textString: string = '';
 
   customStyle = {
@@ -45,7 +47,7 @@ export class UploadComponent implements OnInit {
     }
   };
 
-  constructor(private einstienService: EinsteinservicecallService) {
+  constructor(private einstienService: EinsteinservicecallService, private route: Router) {
   }
 
   ngOnInit() {
@@ -74,10 +76,14 @@ export class UploadComponent implements OnInit {
   }
 
   sendRequest() {
-    console.log(this.base64textString);
     this.einstienService.getDataJson(this.base64textString)
       .subscribe(
-        reponse => console.log(reponse),
+        reponse => {
+          console.log(reponse);
+          this.x = reponse;
+          console.log(JSON.stringify(this.x));
+          this.route.navigate(['/carList']);
+        },
         error => {
           console.log(error);
         }

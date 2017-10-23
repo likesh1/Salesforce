@@ -45,6 +45,7 @@ import {UploadComponent} from './upload/upload.component';
 import {ImageUploadModule} from 'angular2-image-upload';
 import {EinsteinservicecallService} from './Service/einsteinservicecall.service';
 import fetchBase from 'fetch-base64';
+import { CartListComponent } from './cart-list/cart-list.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import fetchBase from 'fetch-base64';
     StartupComponent,
     HomeComponent,
     HeaderComponent,
-    UploadComponent
+    UploadComponent,
+    CartListComponent
   ],
   imports: [
     BrowserModule,
