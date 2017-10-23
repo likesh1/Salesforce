@@ -8,7 +8,9 @@ import {EinsteinservicecallService} from '../Service/einsteinservicecall.service
 })
 export class UploadComponent implements OnInit {
   showUpload: boolean;
-  x: any;
+  file2: any
+  private base64textString: string = '';
+
   customStyle = {
     selectButton: {
       'background-color': '#4942B7',
@@ -53,19 +55,41 @@ export class UploadComponent implements OnInit {
   onUploadFinished(event) {
     this.showUpload = true;
     const file = event.file;
-    let base64: string;
-    const reader = new FileReader();
-    reader.readAsBinaryString(file);
-    reader.onload = function () {
-      base64 = reader.result;
-      const base = btoa(base64);
-    };
-    this.x = base64;
-    console.log(this.x);
-    console.log(base64);
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = this._handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(file);
+    }
+
+    // let base64: string;
+    //
+    // const setImage = (str) => {
+    //   this.file = str;
+    // };
+    // const reader = new FileReader();
+    // // reader.onload = new Promise((resolve, reject) => {
+    // //   base64 = reader.result;
+    // //   this.file = btoa(base64);
+    // //   return btoa(base64);
+    // // });
+    // reader.onload = function () {
+    //   base64 = reader.result;
+    // };
+    // console.log(this.file);
+    // reader.readAsBinaryString(this.file);
+    // console.log((reader.result));
+    // reader.onerror = function (error) {
+    //   console.log('Error: ', error);
+    // };
+
+  }
+
+  _handleReaderLoaded(readerEvt) {
+    const binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
+    //console.log(btoa(binaryString));
   }
 
   onRemoved() {
@@ -73,8 +97,8 @@ export class UploadComponent implements OnInit {
   }
 
   sendRequest() {
-    console.log(this.x);
-    this.einstienService.getDataJson(this.x)
+    console.log(this.base64textString);
+    this.einstienService.getDataJson(this.base64textString)
       .subscribe(
         reponse => console.log(reponse),
         error => {
@@ -83,3 +107,5 @@ export class UploadComponent implements OnInit {
       );
   }
 }
+
+

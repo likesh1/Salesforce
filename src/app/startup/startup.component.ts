@@ -18,7 +18,6 @@ export class StartupComponent implements AfterContentInit {
 
   next() {
     setTimeout(() => {
-      console.log('hello');
       this.route.navigate(['/home']);
     }, 2000);
 

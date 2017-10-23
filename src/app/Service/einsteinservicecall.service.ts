@@ -5,29 +5,32 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
+
+
 @Injectable()
 export class EinsteinservicecallService {
 
-  token = 'U4BUOT7WYHKZZIIZN2KZGRPWLOVXQQJ55ZUO4VQDISEVHW7M25OEJVDGSWZAXFA6APRG663YRU5SZI3UJP2AXMZYZNKLCO7DNSS5AQY';
+  token = 'Z4N7IAPKAKE2PCORKVR4LLWVDWN2XVUKHUCVLKII6TWSBGGRXRDNK7H57DFRX3UQEAMCBULMECYYX3L3JFKYT5DBYAJ7WRMMFSYDUMY';
+  modelId = 'FoodImageClassifier';
 
   constructor(private http: Http) {
   }
 
-  getDataJson(base64String: any): Observable<any[]> {
-    const headers = new Headers({
-      'Content-Type': 'multipart/form-data',
-    });
-    headers.append('Authorization', `Bearer ${this.token}`);
-    headers.append('Cache-Control', 'no-cache');
-    console.log(headers.toJSON());
-    const options = new RequestOptions({headers: headers});
-    const formData: FormData = new FormData();
-    console.log(JSON.stringify({base64String}));
+
+  getDataJson(base64String: string): Observable<any[]> {
+
     console.log(base64String);
-    formData.append('sampleBase64Content', JSON.stringify({base64String}));
+    const headers = new Headers({
+      'Authorization': `Bearer ${this.token}`,
+      'Cache-Control': 'no-cache',
+      'Access-Control-Allow-Origin': '*'
+    });
+    const formData = new FormData();
+    //formData.append('sampleBase64Content', this.base64);
+    formData.append('sampleBase64Content', base64String);
     formData.append('modelId', 'FoodImageClassifier');
-    console.log(formData);
-    return this.http.post('https://api.einstein.ai/v2/vision/predict', formData, options)
+    const options = new RequestOptions({headers: headers});
+    return this.http.post('https://cors-anywhere.herokuapp.com/https://api.einstein.ai/v2/vision/predict', formData, options)
       .map(response => {
         response.json();
         console.log(response.json());

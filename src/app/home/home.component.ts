@@ -9,10 +9,11 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('camera') video;
   @ViewChild('myCanvas') canvas;
-  private title = 'Electron with Angular2';
-  private subTitle = 'This app was made for Electron Angular Example';
+  private title = 'Buy Me';
+  private subTitle = 'Click to Buy';
   showPicture: boolean;
   private ctx;
+
 
   ngOnInit() {
     this.showPicture = true;
@@ -35,9 +36,12 @@ export class HomeComponent implements OnInit {
     this.ctx.translate(_canvas.width, 0);
     this.ctx.scale(-1, 1);
     const _video = this.video.nativeElement;
+    this.ctx.drawImage(_video, 0, 0, _canvas.width, _canvas.height);
     const dataURL = _canvas.toDataURL('image/png');
-    dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+    const x = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+    console.log(x);
     this.showPicture = false;
+
   }
 
 }

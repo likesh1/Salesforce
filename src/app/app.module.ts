@@ -11,7 +11,6 @@ import {
   MatCheckboxModule,
   MatChipsModule,
   MatDatepickerModule,
-  MatDialogModule,
   MatExpansionModule,
   MatGridListModule,
   MatIconModule,
@@ -44,7 +43,8 @@ import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {UploadComponent} from './upload/upload.component';
 import {ImageUploadModule} from 'angular2-image-upload';
-import {EinsteinservicecallService} from "./Service/einsteinservicecall.service";
+import {EinsteinservicecallService} from './Service/einsteinservicecall.service';
+import fetchBase from 'fetch-base64';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,6 @@ import {EinsteinservicecallService} from "./Service/einsteinservicecall.service"
     MatCheckboxModule,
     MatChipsModule,
     MatDatepickerModule,
-    MatDialogModule,
     MatExpansionModule,
     MatGridListModule,
     MatIconModule,
