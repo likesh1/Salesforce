@@ -62,34 +62,11 @@ export class UploadComponent implements OnInit {
 
       reader.readAsBinaryString(file);
     }
-
-    // let base64: string;
-    //
-    // const setImage = (str) => {
-    //   this.file = str;
-    // };
-    // const reader = new FileReader();
-    // // reader.onload = new Promise((resolve, reject) => {
-    // //   base64 = reader.result;
-    // //   this.file = btoa(base64);
-    // //   return btoa(base64);
-    // // });
-    // reader.onload = function () {
-    //   base64 = reader.result;
-    // };
-    // console.log(this.file);
-    // reader.readAsBinaryString(this.file);
-    // console.log((reader.result));
-    // reader.onerror = function (error) {
-    //   console.log('Error: ', error);
-    // };
-
   }
 
   _handleReaderLoaded(readerEvt) {
     const binaryString = readerEvt.target.result;
     this.base64textString = btoa(binaryString);
-    //console.log(btoa(binaryString));
   }
 
   onRemoved() {

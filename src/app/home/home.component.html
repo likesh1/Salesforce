@@ -7,7 +7,7 @@
     </div>
   </h2>
   <video #camera class="ui fluid videoSize" autoplay></video>
-  <canvas #myCanvas class="ui-fluid"></canvas>
+  <canvas #myCanvas class="ui-fluid" [style.display]="getStyle"></canvas>
   <button id="btn_photo" class="ui fluid button" (click)="takePhoto()" *ngIf='showPicture'>
     <i class="icon photo"></i>
     Take a Photo!

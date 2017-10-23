@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   showPicture: boolean;
   private ctx;
 
+  getStyle = 'none';
 
   ngOnInit() {
     this.showPicture = true;
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
 
 
   takePhoto = () => {
+    this.getStyle = 'block';
     const _canvas = this.canvas.nativeElement;
     this.ctx = _canvas.getContext('2d');
     this.ctx.translate(_canvas.width, 0);
