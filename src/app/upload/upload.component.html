@@ -1,10 +1,19 @@
-<image-upload url="https://httpbin.org/status/200" dropBoxMessage="Choose files or Drag them"
-              (uploadFinished)="onUploadFinished($event)"
-              [style]="customStyle"
-              [max]='1'
-              class="customClass"
-              [extensions]="['jpg','png','gif']"
-              (removed)="onRemoved($event)"
-              [fileTooLargeMessage]="'Image too large!'"></image-upload>
+<div [style.display]="getStyleBox">
+  <image-upload url="https://httpbin.org/status/200" dropBoxMessage="Choose files or Drag them"
+                (uploadFinished)="onUploadFinished($event)"
+                [style]="customStyle"
+                [max]='1'
+                class="customClass"
+                [extensions]="['jpg','png','gif']"
+                (removed)="onRemoved($event)"
+                [fileTooLargeMessage]="'Image too large!'"></image-upload>
 
-<mat-button-toggle *ngIf="showUpload" (click)="sendRequest()">Upload ?</mat-button-toggle>
+  <mat-button-toggle *ngIf="showUpload" (click)="sendRequest()"><i class="material-icons">file_upload</i> Upload
+  </mat-button-toggle>
+</div>
+<div class="loader">
+  <sk-wandering-cubes *ngIf="showLoader"></sk-wandering-cubes>
+</div>
+<div class="loader">
+  <sk-cube-grid *ngIf="showWanderLoading" class="loaderStyle"></sk-cube-grid>
+</div>

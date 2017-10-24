@@ -45,7 +45,10 @@ import {UploadComponent} from './upload/upload.component';
 import {ImageUploadModule} from 'angular2-image-upload';
 import {EinsteinservicecallService} from './Service/einsteinservicecall.service';
 import fetchBase from 'fetch-base64';
-import { CartListComponent } from './cart-list/cart-list.component';
+import {CartListComponent} from './cart-list/cart-list.component';
+import {JsonConstructService} from './json-construct.service';
+import {NgSpinKitModule} from 'ng-spin-kit';
+
 
 @NgModule({
   declarations: [
@@ -93,9 +96,10 @@ import { CartListComponent } from './cart-list/cart-list.component';
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
-    ImageUploadModule.forRoot()
+    ImageUploadModule.forRoot(),
+    NgSpinKitModule
   ],
-  providers: [EinsteinservicecallService],
+  providers: [EinsteinservicecallService, JsonConstructService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

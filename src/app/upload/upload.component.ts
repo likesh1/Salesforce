@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {JsonConstructService} from '../json-construct.service';
 
 @Component({
   selector: 'app-upload',
@@ -11,27 +12,24 @@ export class UploadComponent implements OnInit {
   showUpload: boolean;
   file2: any;
   x: any;
-  private base64textString: string = '';
-
+  getStyleBox = '';
+  private base64textString = '';
+  showWanderLoading: boolean;
+  showLoader: boolean;
   customStyle = {
     selectButton: {
-      'background-color': '#4942B7',
+      'background-color': 'lightskyblue',
       'color': '#fff',
       'position': 'absolute',
       'top': '80%',
       'left': '20%'
     },
     clearButton: {
-      'background-color': '#FFF',
-      'color': '#000',
-      'position': 'absolute',
-      'top': '20%',
-      'left': '20%',
       'visibility': 'hidden'
     },
     layout: {
-      'background-color': 'black',
-      'color': '#FFF',
+      'background-color': 'white',
+      'color': '#000',
       'font-size': '15px',
       'margin': '10px',
       'padding-top': '5px',
@@ -39,22 +37,31 @@ export class UploadComponent implements OnInit {
       'position': 'absolute',
       'height': '66%',
       'top': '10%',
-      'left': '9%'
+      'left': '9%',
+      'border-style': 'dashed',
+      'border-width': 'medium',
+      'border-color': 'black`'
     },
     previewPanel: {
-      'background-color': 'black',
+      'background-color': 'white',
       'border-radius': '0 0 25px 25px',
     }
   };
 
-  constructor(private einstienService: EinsteinservicecallService, private route: Router) {
+  constructor(private einstienService: EinsteinservicecallService,
+              private jsonConstruct: JsonConstructService,
+              private route: Router) {
   }
 
   ngOnInit() {
     this.showUpload = false;
+    this.showLoader = false;
+    this.showWanderLoading = false;
   }
 
   onUploadFinished(event) {
+    this.getStyleBox = 'none';
+    this.showWanderLoading = true;
     this.showUpload = true;
     const file = event.file;
     if (file) {
@@ -64,6 +71,8 @@ export class UploadComponent implements OnInit {
 
       reader.readAsBinaryString(file);
     }
+    this.showWanderLoading = false;
+    this.getStyleBox = 'block';
   }
 
   _handleReaderLoaded(readerEvt) {
@@ -72,16 +81,22 @@ export class UploadComponent implements OnInit {
   }
 
   onRemoved() {
+    this.getStyleBox = 'none';
+    this.showWanderLoading = true;
     this.showUpload = false;
+    this.showWanderLoading = false;
+    this.getStyleBox = 'block';
   }
 
   sendRequest() {
+    this.getStyleBox = 'none';
+    this.showLoader = true;
     this.einstienService.getDataJson(this.base64textString)
       .subscribe(
         reponse => {
-          console.log(reponse);
           this.x = reponse;
-          console.log(JSON.stringify(this.x));
+          this.jsonConstruct.setResponse(this.x);
+          this.showLoader = true;
           this.route.navigate(['/carList']);
         },
         error => {

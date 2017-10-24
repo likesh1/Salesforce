@@ -1,19 +1,30 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
-import {jsonReturn} from '../jsonReturn.model';
 
 
 @Injectable()
 export class EinsteinservicecallService {
 
-  token = 'Z4N7IAPKAKE2PCORKVR4LLWVDWN2XVUKHUCVLKII6TWSBGGRXRDNK7H57DFRX3UQEAMCBULMECYYX3L3JFKYT5DBYAJ7WRMMFSYDUMY';
+  token = 'IU6VB4KS2YDQMKI3D5KEJDRXXD6GDWFAPLZWNCGOUXK7BETSCPBFZOBNLADIWQQDZIUS5KDVSCQXPE6LJI67CUDWRORK77AZMBGFDDA';
   modelId = 'GeneralImageClassifier';
+  jsonResponse = new EventEmitter<any>();
+  responseData = {};
 
   constructor(private http: Http) {
+  }
+
+  setResponse(string: any) {
+    this.jsonResponse.emit(string);
+    console.log(string);
+    this.responseData = string;
+  }
+
+  getReponse() {
+    return this.responseData;
   }
 
   getDataJson(base64String: string): Observable<any[]> {

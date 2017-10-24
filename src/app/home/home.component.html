@@ -1,4 +1,4 @@
-<div class="ui container">
+<div class="ui container" [style.display]="getStyleBox">
   <h2 class="ui center aligned icon header">
     <img class="ui image" src="./assets/img/electron_icon.png">
     <div class="content">
@@ -14,8 +14,12 @@
     Take a Photo!
   </button>
   <div class="button-proceed">
-    <button class="ui fluid button" *ngIf='!showPicture' (click)="nextPage()">Proceed</button>
-    <button class="ui fluid button" *ngIf='!showPicture'(click)="backToCamera()">ReTake</button>
+    <button class="ui fluid button" *ngIf='!showPicture' (click)="nextPage()">Proceed
+    </button>
+    <button class="ui fluid button" *ngIf='!showPicture' (click)="backToCamera()">ReTake
+    </button>
   </div>
 </div>
-
+<div class="loader">
+  <sk-cube-grid *ngIf="showLoader" class="loaderStyle"></sk-cube-grid>
+</div>

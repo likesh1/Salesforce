@@ -12,7 +12,7 @@
 }
 
 mat-button-toggle {
-  background-color: black;
+  background-color: #02A8F3;
   color: white;
   position: absolute;
   top: 80%;
@@ -28,4 +28,9 @@ mat-button-toggle {
   margin: 6px;
   position: relative;
   width: 90% !important;
+}
+
+/deep/ .loaderStyle {
+  background-color: white;
+  color: white;
 }

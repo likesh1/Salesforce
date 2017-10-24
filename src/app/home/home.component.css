@@ -17,8 +17,12 @@
   padding: 10%;
 }
 
-.ui.fluid.button {
-  background-color: lightskyblue;
+.button {
+  background-color: #02A8F3;
+  font-size: 1rem !important;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .hideImage {
@@ -32,7 +36,13 @@
   width: 300px;
   height: 450px;
 }
-.button-proceed{
+
+.button-proceed {
   display: flex;
   flex-wrap: nowrap;
+}
+
+.loaderStyle {
+  color: white;
+  background-color: white;
 }

@@ -1,11 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {JsonConstructService} from '../json-construct.service';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
 
@@ -20,17 +22,21 @@ export class HomeComponent implements OnInit {
   getWidthStyle = '';
   getHeightStyle = '';
   showCamera: boolean;
+  getStyleBox = '';
   private base64textString = '';
   x: any;
+  showLoader: boolean;
 
-  constructor(private einstienService: EinsteinservicecallService, private route: Router) {
+  constructor(private einstienService: EinsteinservicecallService,
+              private jsonConstruct: JsonConstructService,
+              private route: Router) {
   }
 
   ngOnInit() {
     this.showCamera = true;
     this.showPicture = true;
     const _video = this.video.nativeElement;
-
+    this.showLoader = false;
     navigator.getUserMedia({video: true, audio: false},
       (stream) => {
         _video.srcObject = stream;
@@ -62,19 +68,27 @@ export class HomeComponent implements OnInit {
   }
 
   nextPage() {
+    this.getStyleBox = 'none';
+    this.showLoader = true;
     this.einstienService.getDataJson(this.base64textString)
       .subscribe(
         reponse => {
           console.log(reponse);
           this.x = reponse;
-          console.log(JSON.stringify(this.x));
-          this.route.navigate(['/carList']);
+          this.jsonConstruct.setResponse(this.x);
+          //this.einstienService.setResponse(this.x);
+          this.showLoader = false;
+          this.show();
         },
         error => {
           console.log(error);
-
         }
       );
+
+  }
+
+  show() {
+    this.route.navigate(['/carList']);
   }
 
   backToCamera() {
