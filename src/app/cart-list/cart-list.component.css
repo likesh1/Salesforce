@@ -1,0 +1,185 @@
+.example-card {
+  position: relative;
+  width: 80%;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+imageSize {
+  max-width: 50px !important;
+  max-height: 100px !important;
+}
+
+mat-card {
+  padding: 10%;
+  border-radius: 2px 2px 0 0;
+}
+
+.flex-boxing {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 5%;
+}
+
+.text-sizing {
+  font-size: medium;
+  font-weight: 700;
+  text-align: left;
+  width: 50%;
+}
+
+.number-sizing {
+  font-size: small;
+  font-weight: 500;
+  text-align: right;
+  width: 50%;
+}
+
+hr {
+  margin: 0;
+  padding: 1%;
+}
+
+.btn-3 {
+  background-color: #5A5B5E;
+}
+
+.btn-3 .round {
+  background-color: #737478;
+}
+
+.button-boxing {
+  display: inline;
+  padding-bottom: 13%;
+}
+
+a {
+  text-decoration: none;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  padding: 12px 53px 12px 23px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: relative;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+a span {
+  position: relative;
+  z-index: 3;
+}
+
+a .round {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  z-index: 2;
+}
+
+a .round i {
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  left: 50%;
+  margin-left: -4px;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.txt {
+  font-size: smaller;
+  line-height: 1.45;
+}
+
+.type-3 .round {
+  background: transparent;
+}
+
+.type-3 a {
+  position: relative;
+  overflow: hidden;
+}
+
+.type-3 a.btn-1:after {
+  background-color: #f59965;
+}
+
+.type-3 a.btn-2:after {
+  background-color: #00c4eb;
+}
+
+.type-3 a.btn-3:after {
+  background-color: #737478;
+}
+
+.type-3 a:after {
+  content: "";
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 37px;
+  height: 38px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.type-3 a:hover:after {
+  right: 100%;
+  width: 50%;
+}
+
+.type-3 a:hover i {
+  margin-left: 4px;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

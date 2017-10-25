@@ -1,0 +1,73 @@
+@mixin transition-fade($time) {
+  -webkit-transition: all $time ease;
+  transition: all $time ease;
+}
+
+@mixin transition-fade-circ($time) {
+  -webkit-transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+$primary-color: #5D4EF0;
+.star {
+  &:before {
+    content: "\2605";
+    position: absolute;
+    color: white;
+  }
+}
+
+.bestseller-badge {
+  font-family: "proxima-nova",sans-serif;
+  position: absolute;
+  top: -10px;
+  border-radius: 10px;
+  background-color: #EF364C;
+  color: white;
+  font-size: 0.7em;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 70%;
+  z-index: 40;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  height: 20px;
+  @include transition-fade-circ(0.35s);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.48);
+  .txt, .star {
+    @include transition-fade(0.35s);
+  }
+  .txt {
+    position: relative;
+    top: 4px;
+  }
+  .star {
+    position: absolute;
+    top: 2px;
+    &.left {
+      left: 8px;
+    }
+    &.right {
+      right: 14px;
+    }
+  }
+  &.in-detailed {
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0);
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    top: 9px;
+    right: -80%;
+    background-color: $primary-color;
+    .right, .txt {
+      opacity: 0;
+    }
+    .left {
+      left: 5px;
+      top: 2px;
+    }
+  }
+}

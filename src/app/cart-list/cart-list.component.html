@@ -1,3 +1,48 @@
-<p>
-  cart-list works!
-</p>
+<div id="overlay" (click)="getStyle()" [style.display]="getStyle">
+  <mat-card class="example-card">
+      <mat-card-subtitle>
+        <div class="bestseller-badge"  *ngIf='elementDisplay.best_seller'>
+          <span class="star left">&nbsp;</span>
+          <span class="txt">Bestseller</span>
+          <span class="star right">&nbsp;</span>
+        </div>
+      </mat-card-subtitle>
+    <div class="imageSize">
+      <img [src]="elementDisplay.img" alt="{{elementDisplay.name}}">
+    </div>
+    <div class="flex-boxing">
+      <div class="text-sizing">
+        {{elementDisplay.name|uppercase}}
+      </div>
+      <div class='number-sizing'>
+        ${{elementDisplay.price}}
+      </div>
+    </div>
+    <mat-card-content>
+      <p>
+        {{elementDisplay.description}}
+      </p>
+      <hr>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="button-boxing">
+        <div class="type-3">
+          <div>
+            <a class="btn btn-3">
+              <span class="txt">Add to Cart</span>
+              <span class="round"><i class="fa fa-chevron-right"></i></span>
+            </a>
+          </div>
+        </div>
+        <div class="type-3">
+          <div (click)="goBack()">
+            <a class="btn btn-3">
+              <span class="txt">Go Back</span>
+              <span class="round"><i class="fa fa-chevron-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

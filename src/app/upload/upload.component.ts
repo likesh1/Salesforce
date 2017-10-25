@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
 import {Router} from '@angular/router';
 import {JsonConstructService} from '../json-construct.service';
+import {ProbabilitiesModel} from "../probabilities.model";
 
 @Component({
   selector: 'app-upload',
@@ -11,21 +12,21 @@ import {JsonConstructService} from '../json-construct.service';
 export class UploadComponent implements OnInit {
   showUpload: boolean;
   file2: any;
-  x: any;
+  probability: ProbabilitiesModel;
   getStyleBox = '';
   private base64textString = '';
   showWanderLoading: boolean;
   showLoader: boolean;
   customStyle = {
     selectButton: {
-      'background-color': 'lightskyblue',
+      'background-color': 'black',
       'color': '#fff',
       'position': 'absolute',
       'top': '80%',
       'left': '20%'
     },
     clearButton: {
-      'visibility': 'hidden'
+      'display': 'none'
     },
     layout: {
       'background-color': 'white',
@@ -93,9 +94,9 @@ export class UploadComponent implements OnInit {
     this.showLoader = true;
     this.einstienService.getDataJson(this.base64textString)
       .subscribe(
-        reponse => {
-          this.x = reponse;
-          this.jsonConstruct.setResponse(this.x);
+        (reponse: ProbabilitiesModel) => {
+          this.probability = reponse;
+          this.jsonConstruct.setResponse(this.probability.probabilities[0].label);
           this.showLoader = true;
           this.route.navigate(['/carList']);
         },

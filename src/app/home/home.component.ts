@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
 import {Router} from '@angular/router';
 import {JsonConstructService} from '../json-construct.service';
+import {JsonResponseModel} from '../cart-list/jsonResponse.model';
+import {ProbabilitiesModel} from "../probabilities.model";
 
 
 @Component({
@@ -24,7 +26,7 @@ export class HomeComponent implements OnInit {
   showCamera: boolean;
   getStyleBox = '';
   private base64textString = '';
-  x: any;
+  probability: ProbabilitiesModel;
   showLoader: boolean;
 
   constructor(private einstienService: EinsteinservicecallService,
@@ -72,11 +74,10 @@ export class HomeComponent implements OnInit {
     this.showLoader = true;
     this.einstienService.getDataJson(this.base64textString)
       .subscribe(
-        reponse => {
+        (reponse: ProbabilitiesModel) => {
           console.log(reponse);
-          this.x = reponse;
-          this.jsonConstruct.setResponse(this.x);
-          //this.einstienService.setResponse(this.x);
+          this.probability = reponse;
+          this.jsonConstruct.setResponse(this.probability.probabilities[0].label);
           this.showLoader = false;
           this.show();
         },

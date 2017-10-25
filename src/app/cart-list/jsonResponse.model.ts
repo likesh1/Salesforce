@@ -1,4 +1,4 @@
 export class JsonResponseModel {
-  label: string;
-  probability: number;
+  constructor(public label: string, public probability: number) {
+  }
 }

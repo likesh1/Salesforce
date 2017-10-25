@@ -2,45 +2,62 @@ import {Component, Input, OnInit} from '@angular/core';
 import {EinsteinservicecallService} from '../Service/einsteinservicecall.service';
 import {JsonConstructService} from '../json-construct.service';
 import {Product} from '../product.model';
-import {JsonResponseModel} from "./jsonResponse.model";
-
+import {JsonResponseModel} from './jsonResponse.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.css', './cart-list.component.scss']
 })
 export class CartListComponent implements OnInit {
-  responseData: any;
-  x: any;
+  responseData: string;
+  x: string;
   product: any;
   elementDisplay: Product;
+  getStyle: string;
+
   highProbability: JsonResponseModel;
 
   constructor(private einstienService: EinsteinservicecallService,
-              private jsonConstruct: JsonConstructService) {
+              private jsonConstruct: JsonConstructService,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.jsonConstruct.jsonResponse.subscribe(
-      (res: any) => {
+      (res: string) => {
         this.x = res;
+        console.log(this.x);
       }
     );
+
     this.product = this.jsonConstruct.getProductDetails();
     this.responseData = this.jsonConstruct.getReponse();
     console.log(this.responseData);
-    //console.log(this.responseData.probabilities[0].label);
-    //console.log(jsonData);
-    //this.highProbability = new JsonResponseModel(jsonData.probabilities[0].name, jsonData.probabilities[0].probability);
-    // for (let i = 0; i < this.product.length; i++) {
-    //   if (this.responseData.probabilities[0].label === this.product[i].name) {
-    //     this.elementDisplay = this.product[i];
-    //   }
-    //   else {
-    //     this.elementDisplay.name = 'notFound';
-    //   }
-    // }
-    // console.log(this.elementDisplay);
+
+    for (let i = 0; i < this.product.length; i++) {
+      console.log(this.responseData.toUpperCase());
+      console.log(this.product[i].name.toUpperCase());
+
+      if (this.responseData.toUpperCase() === this.product[i].name.toUpperCase()) {
+        this.elementDisplay = this.product[i];
+        break;
+      }
+      else {
+        this.elementDisplay = this.product[5];
+
+      }
+    }
+    if (this.elementDisplay) {
+      this.getStyle = 'block';
+    }
+    console.log(this.elementDisplay);
+  }
+
+  goBack() {
+    setTimeout(() => {
+      this.router.navigate(['/home']);
+    }, 500);
   }
 }

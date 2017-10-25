@@ -4,13 +4,15 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import {JsonResponseModel} from '../cart-list/jsonResponse.model';
+import {ProbabilitiesModel} from '../probabilities.model';
 
 
 @Injectable()
 export class EinsteinservicecallService {
 
   token = 'IU6VB4KS2YDQMKI3D5KEJDRXXD6GDWFAPLZWNCGOUXK7BETSCPBFZOBNLADIWQQDZIUS5KDVSCQXPE6LJI67CUDWRORK77AZMBGFDDA';
-  modelId = 'GeneralImageClassifier';
+  modelId = 'FoodImageClassifier';
   jsonResponse = new EventEmitter<any>();
   responseData = {};
 
@@ -27,7 +29,7 @@ export class EinsteinservicecallService {
     return this.responseData;
   }
 
-  getDataJson(base64String: string): Observable<any[]> {
+  getDataJson(base64String: string): Observable<ProbabilitiesModel> {
     const headers = new Headers({
       'Authorization': `Bearer ${this.token}`,
       'Cache-Control': 'no-cache',
