@@ -4,6 +4,7 @@ import {JsonConstructService} from '../json-construct.service';
 import {Product} from '../product.model';
 import {JsonResponseModel} from './jsonResponse.model';
 import {Router} from '@angular/router';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -21,7 +22,8 @@ export class CartListComponent implements OnInit {
 
   constructor(private einstienService: EinsteinservicecallService,
               private jsonConstruct: JsonConstructService,
-              private router: Router) {
+              private router: Router,
+              private cartService: CartService) {
   }
 
   ngOnInit() {
@@ -53,6 +55,15 @@ export class CartListComponent implements OnInit {
       this.getStyle = 'block';
     }
     console.log(this.elementDisplay);
+  }
+
+  addtoCart() {
+    console.log(this.elementDisplay);
+    this.cartService.addtoCart(this.elementDisplay);
+    this.cartService.addProductToCart(this.elementDisplay);
+    setTimeout(() => {
+      this.router.navigate(['/cart-list']);
+    }, 500);
   }
 
   goBack() {

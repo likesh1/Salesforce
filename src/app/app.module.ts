@@ -48,6 +48,8 @@ import fetchBase from 'fetch-base64';
 import {CartListComponent} from './cart-list/cart-list.component';
 import {JsonConstructService} from './json-construct.service';
 import {NgSpinKitModule} from 'ng-spin-kit';
+import {CartCheckoutComponent} from './cart-checkout/cart-checkout.component';
+import {CartService} from "./cart.service";
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import {NgSpinKitModule} from 'ng-spin-kit';
     HomeComponent,
     HeaderComponent,
     UploadComponent,
-    CartListComponent
+    CartListComponent,
+    CartCheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +102,7 @@ import {NgSpinKitModule} from 'ng-spin-kit';
     ImageUploadModule.forRoot(),
     NgSpinKitModule
   ],
-  providers: [EinsteinservicecallService, JsonConstructService],
+  providers: [EinsteinservicecallService, JsonConstructService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

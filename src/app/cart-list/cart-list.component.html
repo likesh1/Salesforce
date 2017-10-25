@@ -1,4 +1,4 @@
-<div id="overlay" (click)="getStyle()" [style.display]="getStyle">
+<div id="overlay" [style.display]="getStyle">
   <mat-card class="example-card">
       <mat-card-subtitle>
         <div class="bestseller-badge"  *ngIf='elementDisplay.best_seller'>
@@ -27,7 +27,7 @@
     <mat-card-actions>
       <div class="button-boxing">
         <div class="type-3">
-          <div>
+          <div (click)="addtoCart()">
             <a class="btn btn-3">
               <span class="txt">Add to Cart</span>
               <span class="round"><i class="fa fa-chevron-right"></i></span>
