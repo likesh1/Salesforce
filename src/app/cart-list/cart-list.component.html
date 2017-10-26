@@ -1,12 +1,12 @@
 <div id="overlay" [style.display]="getStyle">
   <mat-card class="example-card">
-      <mat-card-subtitle>
-        <div class="bestseller-badge"  *ngIf='elementDisplay.best_seller'>
-          <span class="star left">&nbsp;</span>
-          <span class="txt">Bestseller</span>
-          <span class="star right">&nbsp;</span>
-        </div>
-      </mat-card-subtitle>
+    <mat-card-subtitle>
+      <div class="bestseller-badge" *ngIf='elementDisplay.best_seller'>
+        <span class="star left">&nbsp;</span>
+        <span class="txt">Bestseller</span>
+        <span class="star right">&nbsp;</span>
+      </div>
+    </mat-card-subtitle>
     <div class="imageSize">
       <img [src]="elementDisplay.img" alt="{{elementDisplay.name}}">
     </div>
@@ -46,3 +46,4 @@
     </mat-card-actions>
   </mat-card>
 </div>
+

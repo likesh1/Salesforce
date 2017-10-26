@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CartService} from '../cart.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,26 +9,30 @@ import {CartService} from '../cart.service';
   styleUrls: ['./cart-checkout.component.css', './cart-checkout.component.scss']
 })
 export class CartCheckoutComponent implements OnInit {
+
+
   products: any[] = [];
   detailViewActive: boolean;
+  showNotFound: boolean;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
   }
 
   ngOnInit() {
     this.detailViewActive = false;
     this.products = this.cartService.getProduct();
-    console.log(this.products);
-    console.log(this.products[0].product.id);
+    if (this.products) {
+      this.showNotFound = true;
+    }
   }
 
   onProductClick() {
     this.detailViewActive = !this.detailViewActive;
   }
 
-  // onAddToCart() {
-  //   this.cartService.addProductToCart(this.product)
-  // }
+  back() {
+    this.router.navigate(['/upload']);
+  }
 
 
 }

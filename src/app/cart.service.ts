@@ -23,6 +23,10 @@ export class CartService {
     return this.products.slice();
   }
 
+  getCartTotal() {
+    return this.cartTotal;
+  }
+
   addProductToCart(product) {
     console.log(product);
     let exists = false;

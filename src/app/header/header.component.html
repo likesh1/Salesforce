@@ -1,13 +1,17 @@
-<button class="menu" mat-icon-button [matMenuTriggerFor]="menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="showCamera()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-    <mat-icon><i class="material-icons">camera_alt</i></mat-icon>
-    <span>Capture</span>
-  </button>
-  <button mat-menu-item (click)="showUpload()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-    <mat-icon><i class="material-icons">file_upload</i></mat-icon>
-    <span>Upload</span>
-  </button>
-</mat-menu>
+<div class="header" ngDraggable="true">
+
+  <nav class="menu">
+    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
+    <label class="menu-open-button" for="menu-open">
+      <span class="hamburger hamburger-1"></span>
+      <span class="hamburger hamburger-2"></span>
+      <span class="hamburger hamburger-3"></span>
+    </label>
+    <a  class="menu-item lol"> <i class="fa fa-home"></i> </a>
+    <a (click)="showCamera()" class="menu-item"> <i class="fa fa-home"></i> </a>
+    <a (click)="showUpload()" class="menu-item"> <i class="fa fa-upload"></i> </a>
+
+
+  </nav>
+
+</div>

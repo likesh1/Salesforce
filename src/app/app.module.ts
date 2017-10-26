@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AngularDraggableModule} from 'angular2-draggable';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -49,8 +50,9 @@ import {CartListComponent} from './cart-list/cart-list.component';
 import {JsonConstructService} from './json-construct.service';
 import {NgSpinKitModule} from 'ng-spin-kit';
 import {CartCheckoutComponent} from './cart-checkout/cart-checkout.component';
-import {CartService} from "./cart.service";
-
+import {CartService} from './cart.service';
+import { ParticlesModule } from 'angular-particle';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import {CartService} from "./cart.service";
     HeaderComponent,
     UploadComponent,
     CartListComponent,
-    CartCheckoutComponent
+    CartCheckoutComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +103,9 @@ import {CartService} from "./cart.service";
     MatTooltipModule,
     MatStepperModule,
     ImageUploadModule.forRoot(),
-    NgSpinKitModule
+    NgSpinKitModule,
+    AngularDraggableModule,
+    ParticlesModule
   ],
   providers: [EinsteinservicecallService, JsonConstructService, CartService],
   bootstrap: [AppComponent]

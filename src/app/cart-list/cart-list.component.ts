@@ -27,6 +27,7 @@ export class CartListComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.jsonConstruct.jsonResponse.subscribe(
       (res: string) => {
         this.x = res;
@@ -55,11 +56,12 @@ export class CartListComponent implements OnInit {
       this.getStyle = 'block';
     }
     console.log(this.elementDisplay);
+
   }
 
   addtoCart() {
     console.log(this.elementDisplay);
-    this.cartService.addtoCart(this.elementDisplay);
+    //this.cartService.addtoCart(this.elementDisplay);
     this.cartService.addProductToCart(this.elementDisplay);
     setTimeout(() => {
       this.router.navigate(['/cart-list']);

@@ -2,4 +2,22 @@
   position: fixed;
   left: 1%;
   top: 1%;
+
+}
+
+.header {
+  z-index: 10000000;
+  position: fixed;
+  top: 0px !important;
+  left: 0px !important;
+  width: 200px;
+  height: 200px;
+}
+
+.ng-draggable {
+  z-index: 100000000;
+  cursor: move;
+}
+.lol{
+  display: none;
 }

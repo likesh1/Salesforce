@@ -4,3 +4,26 @@
   padding: 15% 10% 10% 10%;
 }
 
+.bottom-left {
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 20px solid #02A8F3;
+  border-radius: 20px;
+}
+
+.center {
+  position: absolute;
+  top: -11px;
+  bottom: 0;
+  right: -10px;
+  margin: auto;
+  color: white;
+}
+
+.filters-wrapper {
+  position: relative;
+  z-index: 90000;
+}
