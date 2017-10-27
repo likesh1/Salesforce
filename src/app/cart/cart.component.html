@@ -17,11 +17,10 @@
         </div>
         <button class="delete-btn" (click) = 'deleteProduct(item.product)'>x</button>
       </div>
-      <button type="button" class="pay-btn">Pay {{cartTotal | currency:'USD':true:'1.0-0'}}</button>
+      <button type="button" (click)="gotoBill()" class="pay-btn">Pay {{cartTotal | currency:'USD':true:'1.0-0'}}</button>
     </div>
     <button type="button" class="close-btn" *ngIf='expanded' (click)="onCartClick()">Close</button>
   </div>
 </div>
 <div class="overlay" [class.shown]='expanded'>
-
 </div>

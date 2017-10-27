@@ -72,4 +72,8 @@ export class CartComponent implements OnInit {
   onCartClick() {
     this.expanded = !this.expanded;
   }
+
+  gotoBill() {
+    this.router.navigate(['/bill']);
+  }
 }

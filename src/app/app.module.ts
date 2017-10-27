@@ -53,6 +53,7 @@ import {CartCheckoutComponent} from './cart-checkout/cart-checkout.component';
 import {CartService} from './cart.service';
 import { ParticlesModule } from 'angular-particle';
 import { CartComponent } from './cart/cart.component';
+import { BillComponent } from './bill/bill.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { CartComponent } from './cart/cart.component';
     UploadComponent,
     CartListComponent,
     CartCheckoutComponent,
-    CartComponent
+    CartComponent,
+    BillComponent
   ],
   imports: [
     BrowserModule,
