@@ -18,13 +18,6 @@ export class UploadComponent implements OnInit {
   showWanderLoading: boolean;
   showLoader: boolean;
   customStyle = {
-    selectButton: {
-      'background-color': 'black',
-      'color': '#fff',
-      'position': 'absolute',
-      'top': '80%',
-      'left': '20%'
-    },
     clearButton: {
       'display': 'none'
     },

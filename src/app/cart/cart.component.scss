@@ -17,13 +17,15 @@ $secondary-color: #EF364C;
     position: absolute;
     top: 0;
     left: 0;
+
+    background: $primary-color;
   }
 }
 
 .close-btn {
   position: absolute;
   top: 6px;
-  right: 5px;
+  right: 40px;
   background: none;
   border: none;
   color: white;
@@ -54,14 +56,17 @@ $secondary-color: #EF364C;
 .expanded-info {
   opacity: 0;
   z-index: -1;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 25%;
   left: 0;
   right: 0;
   color: white;
   width: 80%;
   margin: 0 auto;
   .product, h3, .pay-btn {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 90%;
     opacity: 0;
     transform: translateY(10px);
     -webkit-transform: translateY(10px);
@@ -71,6 +76,7 @@ $secondary-color: #EF364C;
     text-align: right;
   }
   &.shown {
+    background: $primary-color;
     opacity: 1;
     z-index: 3;
     .product, h3, .pay-btn {
@@ -81,6 +87,8 @@ $secondary-color: #EF364C;
       -webkit-transition-delay: 0.2s;
       transition-delay: 0.2s;
       opacity: 0.43;
+      postion: relative;
+      margin-left: 5rem;
     }
 
     .product {
@@ -93,6 +101,8 @@ $secondary-color: #EF364C;
       -webkit-transition-delay: 0.6s;
       transition-delay: 0.6s;
       opacity: 1;
+      display: block;
+      margin-bottom: 30px;
     }
   }
   h3 {
@@ -107,7 +117,7 @@ $secondary-color: #EF364C;
       margin: 0;
     }
     &:not(:last-child) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 5%;
     }
     .delete-btn {
       position: absolute;
@@ -171,7 +181,8 @@ $secondary-color: #EF364C;
     border: none;
     padding: 0;
     border-radius: 50px;
-    position: relative;
+    //position: fixed;
+    bottom: 10%;
     z-index: 5;
     background: none;
     @include transition-fade-circ(0.2s);
@@ -179,6 +190,7 @@ $secondary-color: #EF364C;
       position: relative;
       top: 3px;
       left: -1px;
+      z-index: 300000;
     }
     &.not-shown {
       -webkit-transform: scale(0);
@@ -193,6 +205,7 @@ $secondary-color: #EF364C;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     color: white;
     position: absolute;
+    z-index: 3000;
     top: -3px;
     font-size: 0.6em;
     right: 0;
@@ -218,7 +231,7 @@ $secondary-color: #EF364C;
 }
 
 /** Media queries **/
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 300px) {
 
   .overlay.shown {
     height: 100%;
@@ -232,7 +245,15 @@ $secondary-color: #EF364C;
   .close-btn {
     z-index: 90;
   }
-  .description, .price {
+  .description {
+    width: 40%;
+    p {
+      font-size: 1em;
+
+    }
+  }
+  .price {
+    width: 60%;
     p {
       font-size: 1em;
     }
@@ -243,15 +264,16 @@ $secondary-color: #EF364C;
       font-size: 0.9em;
     }
     .product .delete-btn {
-      right: -21px;
-      top: 10px;
+      right: -16px;
+      top: -2px;
     }
   }
   .preview {
     position: fixed;
+    max-width: 13%;
     bottom: 3%;
-    right: 5%;
-    width: 13%;
+    right: 7%;
+    transition: all 0.3s;
     @include transition-fade-circ(0.3s);
     .fill {
       box-shadow: 0 2px 13px rgba(93, 78, 240, 0.75);
@@ -264,6 +286,42 @@ $secondary-color: #EF364C;
       .fill {
         width: 100%;
       }
+    }
+  }
+}
+@media only screen and (min-device-width: 300px) and (max-width: 550px){
+  .expanded-info {
+    width: 90%;
+    h3 {
+      font-size: 0.9em;
+    }
+    .product .delete-btn {
+      right: -16px;
+      top: -2px;
+    }
+  }
+}
+@media only screen and (min-device-width: 551px) and (max-width: 850px){
+  .expanded-info {
+    width: 65%;
+    h3 {
+      font-size: 0.9em;
+    }
+    .product .delete-btn {
+      right: -16px;
+      top: -2px;
+    }
+  }
+}
+@media only screen and (min-device-width: 851px){
+  .expanded-info {
+    width: 50%;
+    h3 {
+      font-size: 0.9em;
+    }
+    .product .delete-btn {
+      right: -16px;
+      top: -2px;
     }
   }
 }

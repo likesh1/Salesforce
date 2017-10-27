@@ -17,6 +17,7 @@ export class CartListComponent implements OnInit {
   product: any;
   elementDisplay: Product;
   getStyle: string;
+  getStylebutton: string;
 
   highProbability: JsonResponseModel;
 
@@ -54,6 +55,9 @@ export class CartListComponent implements OnInit {
     }
     if (this.elementDisplay) {
       this.getStyle = 'block';
+    }
+    if (this.elementDisplay === this.product[5]) {
+      this.getStylebutton = 'none';
     }
     console.log(this.elementDisplay);
 

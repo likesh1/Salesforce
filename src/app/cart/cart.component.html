@@ -7,11 +7,11 @@
     <div class="expanded-info" [class.shown]='expanded'>
       <h3>This is what you're gonna buy...</h3>
       <div class="product" *ngFor="let item of products">
-        <div class="row">
-          <div class="col-6-sm description">
+        <div class="row flexing">
+          <div class="description">
             <p>{{item.quantity}} x {{item.product.name}}</p>
           </div>
-          <div class="col-6-sm price">
+          <div class="price">
             <p>{{item.quantity*item.product.parsedPrice | currency:'USD':true:'1.0-0' }}</p>
           </div>
         </div>

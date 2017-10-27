@@ -1,7 +1,7 @@
-<div class="product-thumbnail">
-  <div *ngFor='let product of products'>
+<div class="postioning">
+  <div class="product-thumbnail" *ngFor='let product of products'>
     <div class="wrapper" [class.unavailable]='!product?.product.available'>
-      <div class="info">
+      <!--<div class="info">-->
         <div class="img-wrapper">
           <img class="img" [src]='product?.product.img'>
           <div class="img-placeholder"></div>
@@ -12,7 +12,7 @@
           <div class="available" *ngIf='product?.product.available'>
             <hr>
             <div class="row">
-              <div class="col-8-sm view-details-wrapper">
+              <div class="view-details-wrapper">
                 <button type="button" class="view" (click)='onProductClick()'>View details</button>
               </div>
             </div>
@@ -33,18 +33,18 @@
           </div>
           <button type="button" class="hide-detail-btn" (click)='onProductClick()'>Click to hide</button>
         </div>
-      </div>
+      <!--</div>-->
       <div class="bestseller-badge" [class.in-detailed]='detailViewActive' *ngIf='product?.product.best_seller'>
         <span class="star left">&nbsp;</span>
         <span class="txt">Bestseller</span>
         <span class="star right">&nbsp;</span>
       </div>
     </div>
-  </div>
-  <div class="filters-wrapper">
-    <app-cart></app-cart>
-  </div>
-  <div class="bottom-left" (click)="back()">
-    <i class="material-icons center">arrow_back</i>
+    <div class="filters-wrapper">
+      <app-cart></app-cart>
+    </div>
+    <div class="bottom-left" (click)="back()">
+      <i class="material-icons center">arrow_back</i>
+    </div>
   </div>
 </div>

@@ -41,8 +41,8 @@ mat-card {
 }
 
 hr {
-  margin: 0;
-  padding: 1%;
+  margin: 1em;
+
 }
 
 .btn-3 {
@@ -182,4 +182,136 @@ a .round i {
   color: white;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+img {
+  position: relative;
+  right: 1em;
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: landscape) {
+  img[_ngcontent-c7] {
+    position: relative;
+    right: 8em;
+    top: -4em;
+  }
+
+  .flex-boxing[_ngcontent-c7] {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5%;
+    position: relative;
+    top: -353px;
+    left: 246px;
+    max-width: 50%;
+  }
+
+  .mat-card-content {
+    display: block;
+    position: relative;
+    top: -353px;
+    left: 246px;
+    max-width: 50%;
+    margin-bottom: 16px;
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0;
+    display: block;
+    position: relative;
+    top: -353px;
+    left: 246px;
+    max-width: 50%;
+  }
+}
+
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: landscape) {
+  img[_ngcontent-c7] {
+    position: relative;
+    right: 8em;
+    top: -4em;
+  }
+
+  .flex-boxing[_ngcontent-c7] {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5%;
+    position: relative;
+    top: -353px;
+    left: 246px;
+    max-width: 50%;
+  }
+
+  .mat-card-content {
+    display: block;
+    position: relative;
+    top: -353px;
+    left: 246px;
+    max-width: 50%;
+    margin-bottom: 16px;
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0;
+    display: block;
+    position: relative;
+    top: -353px;
+    left: 246px;
+    max-width: 50%;
+  }
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 846px) {
+  .button-boxing[_ngcontent-c7] {
+    padding-bottom: 13%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .type-3[_ngcontent-c7] a[_ngcontent-c7] {
+    position: relative;
+    overflow: hidden;
+    margin-left: 4em;
+  }
+}
+
+@media only screen
+and (min-device-width: 847px)
+and (max-device-width: 1200px) {
+  .button-boxing[_ngcontent-c7] {
+    padding-bottom: 13%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .type-3[_ngcontent-c7] a[_ngcontent-c7] {
+    position: relative;
+    overflow: hidden;
+    margin-left: 7em;
+  }
+}
+
+@media only screen
+and (min-device-width: 1201px) {
+  .button-boxing[_ngcontent-c7] {
+    padding-bottom: 13%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .type-3[_ngcontent-c7] a[_ngcontent-c7] {
+    position: relative;
+    overflow: hidden;
+    margin-left: 14em;
+  }
 }

@@ -19,6 +19,17 @@ mat-button-toggle {
   left: 40%;
 }
 
+/deep/ .customClass .img-ul-loading-overlay[_ngcontent-c3] {
+  bottom: 0;
+  left: 0;
+  opacity: .7;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  background-color: transparent !important;
+}
+
 /deep/ .customClass .img-ul-image {
   background: center center no-repeat;
   background-size: contain;
@@ -33,4 +44,180 @@ mat-button-toggle {
 /deep/ .loaderStyle {
   background-color: white;
   color: white;
+}
+
+/deep/ .customClass .img-ul-button[_ngcontent-c3] {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 9%;
+  width: 80%;
+  right: 9%;
+  z-index: 10;
+}
+
+sk-wandering-cubes {
+  width: 80px;
+  height: 80px;
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (orientation: landscape) {
+  /deep/ .customClass .img-ul-image {
+    height: 103px !important;
+    width: 33% !important;
+    top: -16px;
+    bottom: 0px;
+    left: 165px;
+    right: 0;
+  }
+
+  mat-button-toggle {
+    background-color: #02A8F3;
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 44%;
+  }
+}
+
+
+
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: landscape) {
+  /deep/ .customClass .img-ul-image {
+    background: center center no-repeat;
+    background-size: contain;
+    display: inline-block;
+    float: left;
+    height: 86px !important;
+    margin: 6px;
+    position: relative;
+    width: 90% !important;
+  }
+
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+  /deep/ .customClass .img-ul-image {
+    background: center center no-repeat;
+    background-size: contain;
+    display: inline-block;
+    float: left;
+    height: 432px !important;
+    margin: 6px;
+    position: relative;
+    width: 100% !important;
+  }
+}
+
+@media only screen
+and (min-device-width: 667px)
+and (max-device-width: 737px) {
+/deep/ .customClass .img-ul-image {
+background: center center no-repeat;
+background-size: contain;
+display: inline-block;
+float: left;
+
+margin: 6px;
+position: relative;
+width: 90% !important;
+}
+
+mat-button-toggle {
+background-color: #02A8F3;
+color: white;
+position: absolute;
+top: 80%;
+left: 44%;
+}
+}
+
+@media screen and (min-height: 450px) and ( max-height: 529px ) {
+/deep/ .customClass .img-ul-image {
+height: 170px !important;
+width: 33% !important;
+top: -16px;
+bottom: 0px;
+left: 165px;
+right: 0;
+}
+
+mat-button-toggle {
+background-color: #02A8F3;
+color: white;
+position: absolute;
+top: 80%;
+left: 44%;
+}
+}
+
+/*@media screen and (min-height: 550px) and ( max-height: 711px ) {*/
+/*/deep/ .customClass .img-ul-image {*/
+/*height: 200px !important;*/
+/*width: 33% !important;*/
+/*top: -16px;*/
+/*bottom: 0px;*/
+/*left: 165px;*/
+/*right: 0;*/
+/*}*/
+
+/*mat-button-toggle {*/
+/*background-color: #02A8F3;*/
+/*color: white;*/
+/*position: absolute;*/
+/*top: 80%;*/
+/*left: 44%;*/
+/*}*/
+/*}*/
+
+@media screen and ( min-height: 712px ) and (max-height: 778px) {
+/deep/ .customClass .img-ul-image {
+height: 316px !important;
+}
+}
+
+@media screen and ( min-height: 779px) {
+/deep/ .customClass .img-ul-image {
+height: 350px !important;
+}
+}
+
+@media screen and (min-width: 780px) {
+mat-button-toggle {
+background-color: #02A8F3;
+color: white;
+position: absolute;
+top: 80%;
+left: 44%;
+}
+}
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: landscape) {
+  /deep/ .customClass .img-ul-image {
+    height: 103px !important;
+    width: 33% !important;
+    top: -16px;
+    bottom: 0px;
+    left: 165px;
+    right: 0;
+  }
+
+  mat-button-toggle {
+    background-color: #02A8F3;
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 44%;
+  }
 }
