@@ -53,8 +53,8 @@ export class HomeComponent implements OnInit {
   takePhoto = () => {
     this.getCameraStyle = 'none';
     this.getStyle = 'block';
-    this.getWidthStyle = '10%';
-    this.getHeightStyle = '450px';
+    this.getWidthStyle = '100%';
+    this.getHeightStyle = '465px';
     const _canvas = this.canvas.nativeElement;
     this.ctx = _canvas.getContext('2d');
     this.ctx.translate(_canvas.width, 0);
