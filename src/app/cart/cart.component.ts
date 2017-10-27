@@ -37,7 +37,6 @@ export class CartComponent implements OnInit {
       acc += product.quantity;
       return acc;
     }, 0);
-    console.log(this.numProducts + 'here');
     this.cartService.productAdded$.subscribe(data => {
       this.products = data.products;
       this.cartTotal = data.cartTotal;

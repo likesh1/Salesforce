@@ -28,7 +28,6 @@ export class CartService {
   }
 
   addProductToCart(product) {
-    console.log(product);
     let exists = false;
     const parsedPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'));
     this.cartTotal += parsedPrice;

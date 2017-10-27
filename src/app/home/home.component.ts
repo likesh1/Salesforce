@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit {
     this.ctx.drawImage(_video, 0, 0, _canvas.width, _canvas.height);
     const dataURL = _canvas.toDataURL('image/png');
     const x = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
-    console.log(x);
     this.base64textString = x;
     this.showPicture = false;
 
@@ -75,7 +74,6 @@ export class HomeComponent implements OnInit {
     this.einstienService.getDataJson(this.base64textString)
       .subscribe(
         (reponse: ProbabilitiesModel) => {
-          console.log(reponse);
           this.probability = reponse;
           this.jsonConstruct.setResponse(this.probability.probabilities[0].label);
           this.showLoader = false;

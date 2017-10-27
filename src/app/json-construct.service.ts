@@ -24,7 +24,7 @@ export class JsonConstructService {
 
 
   setResponse(string: string) {
-    console.log(string);
+
     this.jsonResponse.emit(string);
     this.responseData = string;
   }

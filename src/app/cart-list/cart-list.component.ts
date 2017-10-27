@@ -32,17 +32,13 @@ export class CartListComponent implements OnInit {
     this.jsonConstruct.jsonResponse.subscribe(
       (res: string) => {
         this.x = res;
-        console.log(this.x);
       }
     );
 
     this.product = this.jsonConstruct.getProductDetails();
     this.responseData = this.jsonConstruct.getReponse();
-    console.log(this.responseData);
 
     for (let i = 0; i < this.product.length; i++) {
-      console.log(this.responseData.toUpperCase());
-      console.log(this.product[i].name.toUpperCase());
 
       if (this.responseData.toUpperCase() === this.product[i].name.toUpperCase()) {
         this.elementDisplay = this.product[i];
@@ -59,12 +55,9 @@ export class CartListComponent implements OnInit {
     if (this.elementDisplay === this.product[5]) {
       this.getStylebutton = 'none';
     }
-    console.log(this.elementDisplay);
-
   }
 
   addtoCart() {
-    console.log(this.elementDisplay);
     //this.cartService.addtoCart(this.elementDisplay);
     this.cartService.addProductToCart(this.elementDisplay);
     setTimeout(() => {

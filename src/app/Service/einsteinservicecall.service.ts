@@ -21,7 +21,6 @@ export class EinsteinservicecallService {
 
   setResponse(string: any) {
     this.jsonResponse.emit(string);
-    console.log(string);
     this.responseData = string;
   }
 

@@ -17,30 +17,7 @@ export class UploadComponent implements OnInit {
   private base64textString = '';
   showWanderLoading: boolean;
   showLoader: boolean;
-  customStyle = {
-    clearButton: {
-      'display': 'none'
-    },
-    layout: {
-      'background-color': 'white',
-      'color': '#000',
-      'font-size': '15px',
-      'margin': '10px',
-      'padding-top': '5px',
-      'width': '80%',
-      'position': 'absolute',
-      'height': '66%',
-      'top': '10%',
-      'left': '9%',
-      'border-style': 'dashed',
-      'border-width': 'medium',
-      'border-color': 'black`'
-    },
-    previewPanel: {
-      'background-color': 'white',
-      'border-radius': '0 0 25px 25px',
-    }
-  };
+  customStyle = {};
 
   constructor(private einstienService: EinsteinservicecallService,
               private jsonConstruct: JsonConstructService,
@@ -51,6 +28,30 @@ export class UploadComponent implements OnInit {
     this.showUpload = false;
     this.showLoader = false;
     this.showWanderLoading = false;
+    this.customStyle = {
+      clearButton: {
+        'display': 'none'
+      },
+      layout: {
+        'background-color': 'white',
+        'color': '#000',
+        'font-size': '15px',
+        'margin': '10px',
+        'padding-top': '5px',
+        'width': '80%',
+        'position': 'absolute',
+        'height': '66%',
+        'top': '10%',
+        'left': '9%',
+        'border-style': 'dashed',
+        'border-width': 'medium',
+        'border-color': 'black`'
+      },
+      previewPanel: {
+        'background-color': 'white',
+        'border-radius': '0 0 25px 25px',
+      }
+    };
   }
 
   onUploadFinished(event) {
