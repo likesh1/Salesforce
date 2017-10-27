@@ -11,7 +11,7 @@ import {ProbabilitiesModel} from '../probabilities.model';
 @Injectable()
 export class EinsteinservicecallService {
 
-  token = '5KAGJNUR6DS3HOI3D5NH6NPOTYN5IT5EC4BXP2EALXAE5YCMXOKHZ3K7HNQSYA6GGGXZ5KTD646YITBQD7XYFNGEOE4TYQWC4OGFABQ';
+  token = 'Q4572ONFXRRUIBT3N4QFO7QC2XW4KPUXYNMGO4XM5EXNDQEHQ3JU32JBNKDE5T2LC422LEJYYTF636KT5AW3Y4GEWSE754TEXYCDM5A';
   modelId = 'FoodImageClassifier';
   jsonResponse = new EventEmitter<any>();
   responseData = {};
