@@ -1,6 +1,3 @@
-# AngularCLI-Electron-Boilerplate
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
-
 ## Installation
 ```Bash
 $ npm install
@@ -13,3 +10,4 @@ $ ng build --watch
 $ npm run electron
 ```
 # Salesforce
+Using this application the user can click a picture in a shopping mall and get the rate of the that particular item and can add to his cart check-out for and can pay through his  credit card or apple pay and can leave without standing in the queue for billing. the predictions are made using Salesforce Einstein API.
